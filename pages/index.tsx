@@ -4,7 +4,7 @@ import PurchasePage from '@/src/component/purchase'
 import { Button } from '@mui/material'
 import Head from 'next/head'
 
-const index = () => {
+const Index = () => {
     const { data: session } = useSession()
 
     return (
@@ -28,4 +28,4 @@ const index = () => {
     )
 }
 
-export default index
+export default Index

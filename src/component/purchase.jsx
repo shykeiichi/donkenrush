@@ -63,7 +63,7 @@ export default function PurchasePage() {
     return cart[category][item]
   }
 
-  function getCategoryWithItem(item): string {
+  function getCategoryWithItem(item) {
     // console.log(Object.keys(cart))
     Object.keys(menu).forEach((category) => {
       menu[category].forEach((val) => {
@@ -76,7 +76,7 @@ export default function PurchasePage() {
     })
   }
 
-  function getVariationSelectorValue(item, category): string {
+  function getVariationSelectorValue(item, category) {
     return variationSelector[category][item]
   }
 
@@ -125,13 +125,13 @@ export default function PurchasePage() {
         {
           Object.keys(menu).map((val, idx) => {
             return (
-            <div>
+            <div key={val}>
               <h1 className={styles.h1}>{val}</h1>
               <ul className={styles.card_container}>
                 {
                   menu[val].map((val2) => {
                     // console.log(val2)
-                    return <div className={styles.card}>
+                    return <div className={styles.card} key={val+val2["name"]} >
                       <Card sx={{minHeight: 420, position: "relative"}}>
                         <CardMedia
                           sx={{ height: 300, marginTop: "-120px"}}
@@ -171,7 +171,7 @@ export default function PurchasePage() {
                             >
                               {val2["variations"].map((vari) => {
                                 return(
-                                    <ToggleButton value={vari}>{vari}</ToggleButton>
+                                    <ToggleButton key={val + val2["name"] + vari} value={vari}>{vari}</ToggleButton>
                                 );
                               })}
                             </ToggleButtonGroup>
@@ -201,7 +201,7 @@ export default function PurchasePage() {
               let menuItem = item["menu"]
               let cartItem = item["cart"]
               return (
-                <Card sx={{position: "relative", width: 240}}>
+                <Card sx={{position: "relative", width: 240}} key={val + item["name"]}>
                   <CardMedia
                     sx={{ height: 300, marginTop: "-120px"}}
                     image={menuItem["image"]}
@@ -221,7 +221,7 @@ export default function PurchasePage() {
                   {
                     cartItem.map((val, idx) => {
                       return (
-                        <CardActions>
+                        <CardActions key={val + item["name"] + [val]}>
                           <Button size="large" variant="contained" fullWidth onClick={() => removeCartItem(menuItem["name"], item["category"], idx)} color="error">{"Remove" + (val != undefined ? " (" + val + ")" : "")}</Button>
                         </CardActions>
                       )
