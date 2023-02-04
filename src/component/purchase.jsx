@@ -10,6 +10,8 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton, ToggleButton, ToggleButtonGroup } from '@mui/material';
+import { Menu } from '@material-ui/icons';
+import useDynamicRefs from 'use-dynamic-refs';
 
 export default function PurchasePage() {
 
@@ -18,6 +20,8 @@ export default function PurchasePage() {
   let [cart, setCart] = useState({})
 
   let [variationSelector, setVariationSelector] = useState({})
+
+  const [getRef, setRef] =  useDynamicRefs();
 
   async function getMenu() {
     let res = await fetch(`/api/data`, {
@@ -45,6 +49,8 @@ export default function PurchasePage() {
     setVariationSelector(variation)
     setCart(carttemp)
     // console.log(variation)
+
+
   }
 
   function addToCartItem(item, category) {
@@ -109,9 +115,28 @@ export default function PurchasePage() {
     return cartList
   }
 
+  function getTotalPrice() {
+    let totalPrice = 0.0
+    Object.keys(cart).forEach((category, idx) => {
+        Object.keys(cart[category]).forEach((itemName) => {
+          let cartItem = cart[category][itemName]
+          if(JSON.stringify(cartItem) == "[]") {
+            return;
+          }
+          let menuItem = menu[category].find((e) => e.name == itemName)
+          cartItem.forEach(() => {
+            totalPrice += parseFloat(menuItem["price"])
+          })
+        })
+    })
+    return totalPrice
+  }
+
   useEffect(() => {
     getMenu();
   }, [])
+
+  let [linkMenu, setLinkMenu] = useState(false)
 
   return (
     <>
@@ -121,12 +146,34 @@ export default function PurchasePage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Button variant="contained" className={styles.menu_icon} onClick={() => setLinkMenu(!linkMenu)}>
+        <Menu style={{fontSize: 24}} />
+      </Button>
+      {
+        linkMenu ? 
+        <div className={styles.link_menu}>
+          {
+            Object.keys(menu).map((category, idx) => {
+              return (
+                <div key={category + idx} onClick={() => getRef(category).current.scrollIntoView({ behavior: 'smooth' } ) }>
+                  {category}
+                </div>
+              )
+            })
+          }
+
+          <div onClick={() => getRef("checkout").current.scrollIntoView({ behavior: 'smooth' })}>
+            Checkout
+          </div>
+        </div> : ""
+
+      }
       <main className={styles.main}>
         {
           Object.keys(menu).map((val, idx) => {
             return (
             <div key={val}>
-              <h1 className={styles.h1}>{val}</h1>
+              <h1 ref={setRef(val)} className={styles.h1}>{val}</h1>
               <ul className={styles.card_container}>
                 {
                   menu[val].map((val2) => {
@@ -187,7 +234,7 @@ export default function PurchasePage() {
           })
         }
         <div className={styles.spacer}></div>
-        <h1 className={styles.h1}>Checkout</h1>
+        <h1 ref={setRef("checkout")} className={styles.h1}>Checkout</h1>
         {/* {
           getCartItem(val2["name"], val).map((cartItem, cartItemIdx) => {
             return (
@@ -197,11 +244,11 @@ export default function PurchasePage() {
         }  */}
         <ul className={styles.card_container}>
           {
-            getCartAsList().map((item) => {
+            getCartAsList().map((item, itemIdx) => {
               let menuItem = item["menu"]
               let cartItem = item["cart"]
               return (
-                <Card sx={{position: "relative", width: 240}} key={val + item["name"]}>
+                <Card sx={{position: "relative", width: 240}} key={item["category"] + item["name"] + JSON.stringify(item)}>
                   <CardMedia
                     sx={{ height: 300, marginTop: "-120px"}}
                     image={menuItem["image"]}
@@ -221,7 +268,7 @@ export default function PurchasePage() {
                   {
                     cartItem.map((val, idx) => {
                       return (
-                        <CardActions key={val + item["name"] + [val]}>
+                        <CardActions key={val + item["category"] + item["name"] + JSON.stringify(item)}>
                           <Button size="large" variant="contained" fullWidth onClick={() => removeCartItem(menuItem["name"], item["category"], idx)} color="error">{"Remove" + (val != undefined ? " (" + val + ")" : "")}</Button>
                         </CardActions>
                       )
@@ -236,8 +283,15 @@ export default function PurchasePage() {
             }
           </ul>
           <div className={styles.h1}>
+            <div>
+              Total Price: <b>{getTotalPrice()} kr</b>
+            </div>
+            <div style={{color: "gray"}}>
+              (Priset kan variera lite)
+            </div>
             <Button variant="contained" size="large" color="success" className={styles.confirm_button} disabled={JSON.stringify(getCartAsList()) == "[]" ? true : false}>Confirm Order</Button>
           </div>
+          <div className={styles.footer}></div>
       </main>
     </>
   )

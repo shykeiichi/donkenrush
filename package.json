@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 7000",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 7000",
     "lint": "next lint"
   },
   "dependencies": {
@@ -26,6 +26,7 @@
     "next-auth": "^4.19.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "4.9.5"
+    "typescript": "4.9.5",
+    "use-dynamic-refs": "^1.0.0"
   }
 }

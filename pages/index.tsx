@@ -3,6 +3,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import PurchasePage from '@/src/component/purchase'
 import { Button } from '@mui/material'
 import Head from 'next/head'
+import styles from '@/styles/Home.module.css'
 
 const Index = () => {
     const { data: session } = useSession()
@@ -17,11 +18,13 @@ const Index = () => {
             {
                 session && session.user ?
                 <PurchasePage /> :
-                <div>
-                    <h1>
-                        mcdonal
-                    </h1>
-                    <Button onClick={() => signIn()}>Sign in</Button>
+                <div className={styles.login_container}>
+                    <div className={styles.login}>
+                        <h1>
+                            Donkenrush 2023
+                        </h1>
+                        <Button variant="contained" onClick={() => signIn()}>Sign in</Button>
+                    </div>
                 </div>
             }
         </>
