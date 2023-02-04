@@ -87,18 +87,19 @@
 }
 
 .menu_icon {
-  position: sticky;
+  position: fixed !important;
   top: 20px;
   left: 100vw;
+  transform: translateX(calc(-100% - 40px));
   font-size: 48px;
-  border-radius: 100px;
+  border-radius: 100px !important;
   z-index: 2;
 }
 
 .link_menu {
   position: fixed;
   left: 100vw;
-  transform: translateY(-45px) translateX(-100%);
+  transform: translateY(-50px) translateX(-100%);
   width: 400px;
   height: 100vh;
   background-color: white;
@@ -119,7 +120,7 @@
   .link_menu {
     position: fixed;
     left: 0;
-    transform: translateY(-45px);
+    transform: translateY(-50px);
     width: 100vw;
     height: max-content;
     min-height: 300px;
@@ -134,11 +135,11 @@
   }
 
   .menu_icon {
-    position: sticky;
+    position: fixed !important;
     top: 20px;
-    left: 20px;
+    left: 120px;
     font-size: 48px;
-    border-radius: 100px;
+    border-radius: 100px !important;
     z-index: 2;
   }
 }

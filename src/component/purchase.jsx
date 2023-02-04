@@ -286,7 +286,7 @@ export default function PurchasePage() {
             <div>
               Total Price: <b>{getTotalPrice()} kr</b>
             </div>
-            <div style={{color: "gray"}}>
+            <div style={{color: "gray`"}}>
               (Priset kan variera lite)
             </div>
             <Button variant="contained" size="large" color="success" className={styles.confirm_button} disabled={JSON.stringify(getCartAsList()) == "[]" ? true : false}>Confirm Order</Button>
