@@ -12,8 +12,11 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { Menu } from '@material-ui/icons';
 import useDynamicRefs from 'use-dynamic-refs';
+import { useSession } from 'next-auth/react';
 
 export default function PurchasePage() {
+
+  const { data: session } = useSession()
 
   let [menu, setMenu] = useState({})
   
@@ -22,6 +25,32 @@ export default function PurchasePage() {
   let [variationSelector, setVariationSelector] = useState({})
 
   const [getRef, setRef] =  useDynamicRefs();
+
+  function confirmOrder() {
+    let finalCartFull = {...cart};
+    let finalCart = {}
+    // console.log(finalCart)
+    Object.keys(finalCartFull).forEach((category, categoryIdx) => {
+      finalCart[category] = {}
+      // console.log(finalCart[category])
+      Object.keys(finalCartFull[category]).forEach((itemName, itemIdx) => {
+        // console.log(JSON.stringify(finalCartFull[category][itemName]) == "[]")
+        if(JSON.stringify(finalCartFull[category][itemName]) == "[]") {
+          return;
+        }
+        finalCart[category][itemName] = finalCartFull[category][itemName]
+        // console.log(`${category}: ${itemName}`)
+      })
+    })
+
+    Object.keys(finalCart).forEach((category, idx) => {
+      if(JSON.stringify(finalCart[category]) == "{}") {
+        delete finalCart[category]
+      }
+    })
+    
+    console.log(finalCart)
+  }
 
   async function getMenu() {
     let res = await fetch(`/api/data`, {
@@ -162,8 +191,13 @@ export default function PurchasePage() {
             })
           }
 
-          <div onClick={() => getRef("checkout").current.scrollIntoView({ behavior: 'smooth' })}>
-            Checkout
+          <div style={{display: "flex", flexDirection: "row"}}>
+            <div onClick={() => getRef("checkout").current.scrollIntoView({ behavior: 'smooth' })}>
+              Checkout
+            </div>
+            <div style={{position: "absolute", transform: "translateX(-50%)", right: 0, textAlign: "right", color: "gray", marginTop: 0}}>
+              {session.user.name}
+            </div>
           </div>
         </div> : ""
 
@@ -289,7 +323,7 @@ export default function PurchasePage() {
             <div style={{color: "gray`"}}>
               (Priset kan variera lite)
             </div>
-            <Button variant="contained" size="large" color="success" className={styles.confirm_button} disabled={JSON.stringify(getCartAsList()) == "[]" ? true : false}>Confirm Order</Button>
+            <Button variant="contained" size="large" color="success" className={styles.confirm_button} disabled={JSON.stringify(getCartAsList()) == "[]" ? true : false} onClick={() => confirmOrder()}>Confirm Order</Button>
           </div>
           <div className={styles.footer}></div>
       </main>
