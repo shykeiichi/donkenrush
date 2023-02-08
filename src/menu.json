@@ -1,0 +1,847 @@
+{
+    "Perfekt för hemleverans!": [
+        {
+            "name": "Super-Meny",
+            "variations": [],
+            "image": "",
+            "url": "",
+            "price": "253,00"
+        },
+        {
+            "name": "Trerättersmenyn för två",
+            "variations": [],
+            "image": "",
+            "url": "",
+            "price": "304,00"
+        },
+        {
+            "name": "Megamenyn",
+            "variations": [],
+            "image": "",
+            "url": "",
+            "price": "146,00"
+        },
+        {
+            "name": "Big Chili Mayo & Cheese",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-bigchilimayocheese:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/big-chili-mayo-och-cheese.html",
+            "price": "95,00"
+        },
+        {
+            "name": "Chili Mayo & Cheese",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-chilimayocheese:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/chili-mayo-och-cheese.html",
+            "price": "79,00"
+        },
+        {
+            "name": "Dubbel QP Cheese",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-qp-cheese-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/qp-cheese.html",
+            "price": "85,00"
+        },
+        {
+            "name": "QP Cheese",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-qp-cheese-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/qp-cheese.html",
+            "price": "68,00"
+        },
+        {
+            "name": "9 st Chicken McNuggets®",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-chicken-mcnuggets-9p:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/9-chicken-mcnuggets.html",
+            "price": "69,00"
+        },
+        {
+            "name": "20 st Chicken McNuggets®",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-chicken-mcnuggets-20p:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/20-chicken-mcnuggets.html",
+            "price": "109,00"
+        },
+        {
+            "name": "Big Share Box",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-big-share:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/big-share.html",
+            "price": "109,00"
+        }
+    ],
+    "Produkter & Menyer": [
+        {
+            "name": "Super-Meny",
+            "variations": [],
+            "image": "",
+            "url": "",
+            "price": "253,00"
+        },
+        {
+            "name": "Trerättersmenyn för två",
+            "variations": [],
+            "image": "",
+            "url": "",
+            "price": "304,00"
+        },
+        {
+            "name": "Megamenyn",
+            "variations": [],
+            "image": "",
+            "url": "",
+            "price": "146,00"
+        },
+        {
+            "name": "Royal Deluxe",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-royaldeluxe:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/mcselection-royal-deluxe.html",
+            "price": "89,00"
+        },
+        {
+            "name": "Big Tasty",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-bigmac-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/big-mac.html",
+            "price": "89,00"
+        },
+        {
+            "name": "Big Tasty Bacon",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-big-tasty-bacon-thickerbeef:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/mcselection-big-tasty-bacon-premium-beef.html",
+            "price": "99,00"
+        },
+        {
+            "name": "Big Chili Mayo & Cheese",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-bigchilimayocheese:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/big-chili-mayo-och-cheese.html",
+            "price": "95,00"
+        },
+        {
+            "name": "Chili Mayo & Cheese",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-chilimayocheese:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/chili-mayo-och-cheese.html",
+            "price": "79,00"
+        },
+        {
+            "name": "Big Mac®",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-bigmac-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/big-mac.html",
+            "price": "50,00"
+        },
+        {
+            "name": "McFeast®",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-mcfeast-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/mcfeast.html",
+            "price": "68,00"
+        },
+        {
+            "name": "Dubbel QP Cheese",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-qp-cheese-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/qp-cheese.html",
+            "price": "85,00"
+        },
+        {
+            "name": "QP Cheese",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-qp-cheese-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/qp-cheese.html",
+            "price": "68,00"
+        },
+        {
+            "name": "Black Garlic Cheese",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-blackgarliccheese:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/black-garlic-cheese.html",
+            "price": "28,00"
+        },
+        {
+            "name": "Trippel Cheeseburgare",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-cheeseburger-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/cheeseburgare.html",
+            "price": "45,00"
+        },
+        {
+            "name": "Dubbel Cheeseburgare",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-double-cheeseburger-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/dubbel-cheeseburgare.html",
+            "price": "28,00"
+        },
+        {
+            "name": "Cheeseburgare",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-cheeseburger-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/cheeseburgare.html",
+            "price": "18,00"
+        },
+        {
+            "name": "Hamburgare",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-hamburger-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/hamburgare.html",
+            "price": "16,00"
+        },
+        {
+            "name": "Crafted Chicken Black Garlic",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-craftedchicken-blackgarlic:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/mcselection-crafted-chicken-black-garlic.html",
+            "price": "89,00"
+        },
+        {
+            "name": "Crafted Chicken Hot Jalapeño",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-craftedchicken-hotjalapeno:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/mcselection-crafted-chicken-hot-jalapeno.html",
+            "price": "89,00"
+        },
+        {
+            "name": "Chicken Tasty ",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-chicken-tasty:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/chicken-tasty.html",
+            "price": "75,00"
+        },
+        {
+            "name": "Chicken McFeast",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-chicken-mcfeast-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/chicken-mcfeast.html",
+            "price": "68,00"
+        },
+        {
+            "name": "McChicken",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-mcchicken-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/mcchicken.html",
+            "price": "51,00"
+        },
+        {
+            "name": "Spicy Chicken Burger",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-chicken-burger-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/chicken-burger.html",
+            "price": "23,00"
+        },
+        {
+            "name": "Chicken Burger",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-chicken-burger-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/chicken-burger.html",
+            "price": "18,00"
+        },
+        {
+            "name": "Filét-o-Fish®",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-filet-o-fish-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/filet-o-fish.html",
+            "price": "32,00"
+        },
+        {
+            "name": "9 st Chicken McNuggets®",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-chicken-mcnuggets-9p:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/9-chicken-mcnuggets.html",
+            "price": "69,00"
+        },
+        {
+            "name": "20 st Chicken McNuggets®",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-chicken-mcnuggets-20p:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/20-chicken-mcnuggets.html",
+            "price": "109,00"
+        },
+        {
+            "name": "6 st Chicken McNuggets® ",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-chicken-mcnuggets-6p:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/6-chicken-mcnuggets.html",
+            "price": "59,00"
+        },
+        {
+            "name": "4 st Chicken McNuggets®",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-chicken-mcnuggets-4p:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/4-chicken-mcnuggets.html",
+            "price": "37,00"
+        },
+        {
+            "name": "3 st Hot Wings",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-9hot-wings:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/9-hot-wings.html",
+            "price": "32,00"
+        },
+        {
+            "name": "9 st Hot Wings",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-9hot-wings:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/9-hot-wings.html",
+            "price": "91,00"
+        },
+        {
+            "name": "Big Share Box",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-big-share:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/big-share.html",
+            "price": "109,00"
+        },
+        {
+            "name": "Veggie Tasty",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-veggie-tasty:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/veggie-tasty.html",
+            "price": "75,00"
+        },
+        {
+            "name": "McVegan",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-veggie-mcvegan-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/mcvegan.html",
+            "price": "30,00"
+        },
+        {
+            "name": "7 st Chili Cheese Tops",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-7chili-cheese-tops:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/chili-cheese-tops-7-pack.html",
+            "price": "35,00"
+        },
+        {
+            "name": "4 st Chili Cheese Tops",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-4chili-cheese-tops:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/chili-cheese-tops.html",
+            "price": "25,00"
+        },
+        {
+            "name": "Sallad Mango-Chili Kyckling & Grönkål",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-sallad-mangochili-chicken-gronkal:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/sallad-mango-chili-kyckling-och-gronkal.html",
+            "price": "75,00"
+        }
+    ],
+    "Tillbehör & Snacks": [
+        {
+            "name": "Pommes Frites",
+            "variations": [
+                "Mellan",
+                "Liten",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-french-fries-mellan:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/pommes-frites-mellan.html",
+            "price": "23,00"
+        },
+        {
+            "name": "Jalapeño Cheese Fries",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-jalapeno-cheese-fries:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/jalapeno-cheese-fries.html",
+            "price": "35,00"
+        },
+        {
+            "name": "Tryffelmajonnäs",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-truffle-dip:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/dipss-tryffelmajonns.html",
+            "price": "12,00"
+        },
+        {
+            "name": "Garlicdip",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-garlic-dip:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/dipss-garlic.html",
+            "price": "10,00"
+        },
+        {
+            "name": "Cheddardip",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-cheddar-dip:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/dipss-cheddar.html",
+            "price": "10,00"
+        },
+        {
+            "name": "Bearnaisedip",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-bea-dip:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/dipss-bearnaise.html",
+            "price": "10,00"
+        },
+        {
+            "name": "McFeastdip",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-mcfeast-dip:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/dipss-mcfeast.html",
+            "price": "10,00"
+        },
+        {
+            "name": "Hot Chilisås",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-hotchili-dip:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/dipss-hot-chili.html",
+            "price": "10,00"
+        },
+        {
+            "name": "Sötsursås",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-curry-dip:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/stsur-ss.html",
+            "price": "10,00"
+        },
+        {
+            "name": "Currysås",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-curry-dip:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/curryss.html",
+            "price": "10,00"
+        },
+        {
+            "name": "Barbequesås",
+            "variations": [],
+            "image": "",
+            "url": "",
+            "price": "10,00"
+        },
+        {
+            "name": "7 st Chili Cheese Tops",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-7chili-cheese-tops:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/chili-cheese-tops-7-pack.html",
+            "price": "35,00"
+        },
+        {
+            "name": "4 st Chili Cheese Tops",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-4chili-cheese-tops:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/chili-cheese-tops.html",
+            "price": "25,00"
+        },
+        {
+            "name": "4 st Chicken McNuggets®",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-chicken-mcnuggets-4p:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/4-chicken-mcnuggets.html",
+            "price": "37,00"
+        },
+        {
+            "name": "3 st Hot Wings",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-9hot-wings:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/9-hot-wings.html",
+            "price": "32,00"
+        },
+        {
+            "name": "9 st Hot Wings",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-9hot-wings:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/9-hot-wings.html",
+            "price": "91,00"
+        },
+        {
+            "name": "Äppelbitar",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-apples:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/smaskiga-pplen.html",
+            "price": "22,00"
+        },
+        {
+            "name": "Big Share Box",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-big-share:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/big-share.html",
+            "price": "109,00"
+        },
+        {
+            "name": "Minimorötter",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-accessories-carrots:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/minimorotter.html",
+            "price": "22,00"
+        }
+    ],
+    "Desserter": [
+        {
+            "name": "McFlurry® Daim",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-desserts-mcflurry-daim:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/mcflurry-daim.html",
+            "price": "31,00"
+        },
+        {
+            "name": "McFlurry® Oreo®",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-desserts-mcflurry-oreo:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/mcflurry-oreo.html",
+            "price": "31,00"
+        },
+        {
+            "name": "Sundae Choklad",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-sundae-chocolate:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/sundae-choklad.html",
+            "price": "24,00"
+        },
+        {
+            "name": "Sundae Kola",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-sundae-caramel:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/sundae-kola.html",
+            "price": "24,00"
+        },
+        {
+            "name": "Sundae Jordgubb",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-sundae-strawberry:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/sundae-jordgubb.html",
+            "price": "24,00"
+        },
+        {
+            "name": "Sundae Naturell",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-sundae-naturell:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/sundae-naturell.html",
+            "price": "24,00"
+        },
+        {
+            "name": "Milkshake Banansmak",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-milkshake-chocolate:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/milkshake-chokladsmak.html",
+            "price": "27,00"
+        },
+        {
+            "name": "Milkshake Jordgubbssmak",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-milkshake-strawberry:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/milkshake-jordgubbssmak.html",
+            "price": "27,00"
+        },
+        {
+            "name": "Milkshake Chokladsmak",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-milkshake-chocolate:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/milkshake-chokladsmak.html",
+            "price": "27,00"
+        },
+        {
+            "name": "Milkshake Vaniljsmak",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-milkshake-vanilla:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/milkshake-vaniljsmak.html",
+            "price": "27,00"
+        },
+        {
+            "name": "Äppelpaj",
+            "variations": [],
+            "image": "",
+            "url": "",
+            "price": "18,00"
+        },
+        {
+            "name": "Triple Chocolate Cookie",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-desserts-triplechocolatecookie:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/triple-chocolate-cookie.html",
+            "price": "24,00"
+        },
+        {
+            "name": "McDonut® Choklad",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-desserts-chocolatedonut:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/mcdonut-choklad.html",
+            "price": "24,00"
+        }
+    ],
+    "Varm dryck": [
+        {
+            "name": "Kaffe",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-coffee:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/kaffe.html",
+            "price": "23,00"
+        },
+        {
+            "name": "Kaffe med mjölk",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-coffee-w-milk:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/kaffe-med-mjolk.html",
+            "price": "23,00"
+        },
+        {
+            "name": "Latte",
+            "variations": [
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-latte:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/latte.html",
+            "price": "31,00"
+        },
+        {
+            "name": "Cappuccino",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-cappuccino:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/cappuccino.html",
+            "price": "31,00"
+        },
+        {
+            "name": "Espresso",
+            "variations": [
+                "Enkel",
+                "Dubbel"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-espresso:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/espresso.html",
+            "price": "23,00"
+        },
+        {
+            "name": "Varm Choklad",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-hot-chocolate:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/varm-choklad.html",
+            "price": "19,00"
+        },
+        {
+            "name": "Te Earl Grey",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-mccafe-pukka-earlgrey:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/mccafe-te-pukka-earl-grey.html",
+            "price": "23,00"
+        },
+        {
+            "name": "Te Green Citrus",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-tea:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/te.html",
+            "price": "23,00"
+        },
+        {
+            "name": "Te Rooibos Spice",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-tea:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/te.html",
+            "price": "23,00"
+        }
+    ],
+    "Kall dryck": [
+        {
+            "name": "Coca-Cola®",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-cocacola-zero-large:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/coca-cola.html",
+            "price": "22,00"
+        },
+        {
+            "name": "Coca-Cola Zero® Sugar",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-cocacola-original-medium:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/coca-cola-zero-sugar.html",
+            "price": "22,00"
+        },
+        {
+            "name": "Fanta® Orange",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-fanta-orange-large:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/fanta.html",
+            "price": "22,00"
+        },
+        {
+            "name": "Fanta® Exotic",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-fanta-exotic-small:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/fanta-exotic.html",
+            "price": "22,00"
+        },
+        {
+            "name": "Sprite® Zero Sugar",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-sprite-zero-medium:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/sprite-zero.html",
+            "price": "22,00"
+        },
+        {
+            "name": "Milkshake Banansmak",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-milkshake-chocolate:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/milkshake-chokladsmak.html",
+            "price": "27,00"
+        },
+        {
+            "name": "Milkshake Jordgubbssmak",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-milkshake-strawberry:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/milkshake-jordgubbssmak.html",
+            "price": "27,00"
+        },
+        {
+            "name": "Milkshake Chokladsmak",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-milkshake-chocolate:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/milkshake-chokladsmak.html",
+            "price": "27,00"
+        },
+        {
+            "name": "Milkshake Vaniljsmak",
+            "variations": [
+                "Liten",
+                "Mellan",
+                "Stor"
+            ],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-milkshake-vanilla:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/milkshake-vaniljsmak.html",
+            "price": "27,00"
+        },
+        {
+            "name": "Arla Ko® Ekologisk Mjölk",
+            "variations": [],
+            "image": "",
+            "url": "",
+            "price": "24,00"
+        },
+        {
+            "name": "Tropicana® Apelsinjuice",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-tropicana-orange:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/tropicana-apelsinjuice-250-ml.html",
+            "price": "26,00"
+        },
+        {
+            "name": "Tropicana® Äppeljuice",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-tropicana-apple:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/tropicana-ppeljuice-250-ml.html",
+            "price": "26,00"
+        },
+        {
+            "name": "Bonaqua® Naturell",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-bonaqua-naturell:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/bonaqua-naturell.html",
+            "price": "26,00"
+        },
+        {
+            "name": "Bonaqua® Citron Lime",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-drinks-bonaqua-citrus:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/product/bonaqua-citron-lime.html",
+            "price": "26,00"
+        }
+    ],
+    "Happy Meal®": [
+        {
+            "name": "Happy Meal® Hamburgare",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-happymeals-hamburger-apple-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/meal/happy-meal-meny-hamburgare.html",
+            "price": "45,00"
+        },
+        {
+            "name": "Happy Meal® Cheeseburgare",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-happymeals-cheeseburger-apple-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/meal/happy-meal-meny-cheeseburgare.html",
+            "price": "45,00"
+        },
+        {
+            "name": "Happy Meal® Chicken Burger",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-happymeals-chickenburger-apple-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/meal/happy-meal-meny-chicken-burger.html",
+            "price": "45,00"
+        },
+        {
+            "name": "Happy Meal® McVegan",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-happymeals-mcvegan-carrots-BestBurger:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/meal/happy-meal-meny-mcvegan.html",
+            "price": "45,00"
+        },
+        {
+            "name": "Happy Meal® 4st Chicken McNuggets®",
+            "variations": [],
+            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-happymeals-4mcnuggets-apple:1-4-product-tile-desktop",
+            "url": "https://www.mcdonalds.com/se/sv-se/meal/happy-meal-meny-nuggets.html",
+            "price": "45,00"
+        }
+    ]
+}

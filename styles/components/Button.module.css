@@ -1,0 +1,25 @@
+.container {
+    font-size: 14px;
+    padding-left: 24px;
+    padding-right: 24px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: var(--orange);
+    transition: all 100ms;
+}
+
+.container:hover {
+    background-color: var(--orange-hover);
+    filter: var(--elevation-1);
+}
+
+.container:active {
+    background-color: var(--orange-press);
+    filter: none;
+}
+
+.fullWidthModifier {
+    width: 100%;
+}
