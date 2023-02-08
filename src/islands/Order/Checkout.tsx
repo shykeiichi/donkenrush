@@ -72,6 +72,8 @@ const Checkout = (props: CheckoutProps) => {
 
                                                     variation={variation}
                                                     article={article}
+
+                                                    key={JSON.stringify(article) + variation}
                                                 />
                                             )
                                         })
@@ -88,6 +90,8 @@ const Checkout = (props: CheckoutProps) => {
 
                                             variation={undefined}
                                             article={article}
+
+                                            key={JSON.stringify(article) + undefined}
                                         />
                                     )
                                 })

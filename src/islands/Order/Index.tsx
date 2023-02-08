@@ -22,7 +22,7 @@ const Index = (props: IndexProps) => {
                     {
                         Object.keys(props.menu).map((category) => {
                             return (
-                                <li className={styles.item} onClick={() => props.getRef(category).current.scrollIntoView({ behavior: 'smooth' } )}>
+                                <li className={styles.item} onClick={() => props.getRef(category).current.scrollIntoView({ behavior: 'smooth' } )} key={"li" + category}>
                                     {category}
                                 </li>
                             )

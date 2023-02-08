@@ -161,9 +161,10 @@ const Order = () => {
                                                 menuVariationSelect={menuVariationSelect}
                                                 setMenuVariation={setMenuVariation}
                                                 setMenuVariationSelect={setMenuVariationSelect}
-                                                menuVariationSelect={menuVariationSelect}
                                                 addToCart={addToCart}
                                                 cart={cart}
+
+                                                key={"ac" + JSON.stringify(article)}
                                             />
                                         )
                                     })
