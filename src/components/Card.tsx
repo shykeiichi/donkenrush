@@ -6,10 +6,10 @@ interface CardProps {
     imageUrl: string,
     value: string,
     subtext?: string,
-    children: any[]
+    children: any
 }
 
-const Card = (props: CardProps, {children}) => {
+const Card = (props: CardProps) => {
   return (
     <div className={styles.container}>
         <img src={props.imageUrl} />

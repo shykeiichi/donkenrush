@@ -2,13 +2,13 @@ import React from 'react'
 import styles from '@/styles/components/Button.module.css'
 
 interface ButtonProps {
-    value: string,
-    size: string,
+    value?: string,
+    size?: string,
     disabled?: boolean,
     fullWidth?: boolean,
     onClick: () => void,
-    children: any[],
-    style: any
+    children: any,
+    style?: any
 }
 
 const Button = (props: ButtonProps) => {

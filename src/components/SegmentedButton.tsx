@@ -5,9 +5,7 @@ interface SegmentedButtonProps {
     buttons: string[],
     value: string,
     onChange?: (value: string) => void,
-    fullWidth?: boolean,
-    value: string,
-    children: any[]
+    fullWidth?: boolean
 }
 
 const SegmentedButton = (props: SegmentedButtonProps) => {
@@ -29,7 +27,7 @@ const SegmentedButton = (props: SegmentedButtonProps) => {
                         <button 
                             key={item} 
                             className={[styles.button, props.value == item ? styles.buttonActive : ""].join(" ")}
-                            onClick={() => props.onChange(item)}
+                            onClick={() => props.onChange ? props.onChange(item) : {}}
                         >
                             {item}
                         </button>

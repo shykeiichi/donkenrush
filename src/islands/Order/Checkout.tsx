@@ -4,16 +4,20 @@ import Button from '@/src/components/Button'
 
 import styles from '@/styles/islands/Order/Checkout.module.css'
 
+import { CartListItem, Cart } from '@/src/interfaces'
+
 interface CheckoutProps {
     getCartAsList: () => CartListItem[],
-    cart: Cart
+    cart: Cart,
+    addToCart: any
+    removeFromCart: any
 }
 
 const Checkout = (props: CheckoutProps) => {
 
     const getAmountOfVariation = (category: string, article: string, variation: string): number => {
         let amount = 0;
-        props.cart[category][article].forEach((item) => {
+        props.cart[category][article].forEach((item: string) => {
             if(item == variation) {
                 amount++;
             }

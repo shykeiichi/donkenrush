@@ -1,12 +1,14 @@
 import Button from '@/src/components/Button'
 import React from 'react'
 
+import { Article } from '@/src/interfaces'
+
 interface RecieptRowProps {
     name: string,
     amount: number,
     price: number,
 
-    article: Article,
+    article: any,
     variation: string,
 
     removeFromCart: (category: string, article: string, variation: string) => void,

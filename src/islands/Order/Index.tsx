@@ -1,12 +1,14 @@
-import React, { useState } from 'react'
+import React, { RefObject, useState } from 'react'
 import styles from "@/styles/islands/Order/Index.module.css"
 import Button from '@/src/components/Button'
 import MenuIcon from '@mui/icons-material/Menu';
 import useWindowDimensions from '@/src/windowDimensions';
 
+import { Menu } from '@/src/interfaces';
+
 interface IndexProps {
     menu: Menu,
-    getRef: () => void,
+    getRef: any,
 }
 
 const Index = (props: IndexProps) => {

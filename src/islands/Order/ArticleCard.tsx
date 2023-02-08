@@ -4,6 +4,8 @@ import CardActions from '@/src/components/CardActions';
 import SegmentedButton from '@/src/components/SegmentedButton';
 import styles from '@/styles/islands/Order.module.css'
 import React from 'react'
+import { Article, MenuVariationSelect, Cart } from '@/src/interfaces'
+
 
 interface ArticleCardProps {
     article: Article,
@@ -12,6 +14,7 @@ interface ArticleCardProps {
     setMenuVariation: (category: string, article: string, variation: string) => void,
     addToCart: (category: string, article: string, variation: string) => void
     cart: Cart
+    setMenuVariationSelect: any
 }
 
 const ArticleCard = (props: ArticleCardProps) => {

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@/styles/islands/Order.module.css'
 import { getData } from '@/src/data';
-import { useEffect, useState } from 'react';
+import { LegacyRef, useEffect, useState } from 'react';
 import Card from '../components/Card';
 import Button from '../components/Button';
 import CardActions from '../components/CardActions';
@@ -11,33 +11,7 @@ import Checkout from './Order/Checkout';
 import ArticleCard from './Order/ArticleCard';
 import Index from './Order/Index';
 import useDynamicRefs from 'use-dynamic-refs';
-
-interface Menu {
-    [category: string]: Article[]
-}
-  
-interface Article {
-    name: string,
-    variations: string[],
-    image: string,
-    url: string,
-    price: string
-}
-
-interface MenuVariationSelect {
-    [category: string]: [article: string] 
-}
-
-interface Cart {
-    [category: string]: [article: string[]]
-}
-
-interface CartListItem {
-    menu: Article,
-    cart: string[],
-    category: string,
-    item: string
-}
+import { Menu, Article, MenuVariationSelect, Cart, CartListItem } from '@/src/interfaces'
 
 const Order = () => {
 
@@ -69,12 +43,12 @@ const Order = () => {
 
         // Populate Menu Variation Select and Cart
 
-        let menuVariationTemp = {}
-        let cartTemp = {}
+        let menuVariationTemp: MenuVariationSelect = {}
+        let cartTemp: Cart = {}
         Object.keys(jsonResponse).forEach((category) => {
-            menuVariationTemp[category] = {};
-            cartTemp[category] = {};
-            jsonResponse[category].forEach((article) => {
+            menuVariationTemp[category] = {} as [article: string];
+            cartTemp[category] = {} as [article: string[]];
+            jsonResponse[category].forEach((article: any, idx: number) => {
                 cartTemp[category][article.name] = []
 
                 if(article.variations.length == 0) {
@@ -95,7 +69,7 @@ const Order = () => {
 
     const setMenuVariation = (category: string, article: string, variation: string) => {
         let temp: MenuVariationSelect = menuVariationSelect;
-        temp[category][article] = variation;
+        temp[category][article as keyof MenuVariationSelect] = variation;
         setMenuVariationSelect(temp);
     }
 
@@ -108,7 +82,7 @@ const Order = () => {
 
     const removeFromCart = (category: string, article: string, variation:string=undefined) => {
         let removeIdx = -1;
-        cart[category][article].forEach((item, idx) => {
+        cart[category][article].forEach((item: string, idx: number) => {
             if(item == variation) {
                 removeIdx = idx;
             }
@@ -122,7 +96,7 @@ const Order = () => {
 
 
     const getCartAsList = (): CartListItem[] => {
-        let cartList = []
+        let cartList: CartListItem[] = []
         Object.keys(cart).forEach((category) => {
             Object.keys(cart[category]).forEach((articleName) => {
               let cartItem = cart[category][articleName]
@@ -148,7 +122,7 @@ const Order = () => {
                 Object.keys(menu).map((category, categoryIdx) => {
                     return (
                         <div key={"Order" + category}>
-                            <h1 ref={setRef(category)}>
+                            <h1 ref={setRef(category) as LegacyRef<HTMLHeadingElement>}>
                                 {category}
                             </h1>
                             <ul className={styles.article_container}>
@@ -180,7 +154,7 @@ const Order = () => {
                 addToCart={addToCart}  
                 removeFromCart={removeFromCart}
             />
-            <div ref={setRef("checkout")} />
+            <div ref={setRef("checkout") as LegacyRef<HTMLDivElement>} />
         </>
     )
 }
