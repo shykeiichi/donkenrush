@@ -4,8 +4,11 @@ import styles from '@/styles/Index.module.css'
 import { getData } from '@/src/data';
 import { useEffect, useState } from 'react';
 import Order from '@/src/islands/Order';
+import { useSession, signIn, signOut } from "next-auth/react"
+import Button from '@/src/components/Button';
 
 export default function Home() {
+  const { data: session } = useSession()
   return (
     <>
       <Head>
@@ -14,9 +17,17 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <Order />
-      </main>
+      { session ?
+        <main className={styles.main}>
+          <Order />
+        </main> :
+        <main className={styles.login}>
+          <h1>
+            Donkenrun 2023
+          </h1>
+          <Button onClick={() => signIn()}>Sign in</Button>
+        </main>
+      }
     </>
   )
 }

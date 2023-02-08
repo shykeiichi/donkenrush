@@ -94,6 +94,14 @@ const Order = () => {
         setCart(temp)
     }
 
+    const getTotalPrice = (): number => {
+        let totalPrice = 0;
+        getCartAsList().forEach((article) => {
+            console.log(article)
+            totalPrice += parseFloat(article.menu.price) * article.cart.length;
+        })
+        return totalPrice;
+    }
 
     const getCartAsList = (): CartListItem[] => {
         let cartList: CartListItem[] = []
@@ -114,9 +122,25 @@ const Order = () => {
         return cartList
     }
 
+    let [confirmOrderPopup, setConfirmOrderPopup] = useState(false)
 
     return (
         <>
+            {
+                confirmOrderPopup ? 
+                <div className={styles.popUpBackground}>
+                    <div className={styles.popUpBox}>
+                        <span>
+                            Bekräfta beställning på <b>{getTotalPrice()} kr</b>
+                        </span>
+                        <div className={styles.spacer} />
+                        <div className={styles.spacer} />
+                        <Button onClick={() => {}}>Ja</Button>
+                        <Button onClick={() => setConfirmOrderPopup(false)} >Nej</Button>
+                    </div>
+                </div> : ""
+            }
+
             <Index menu={menu} getRef={getRef} />
             {
                 Object.keys(menu).map((category, categoryIdx) => {
@@ -125,7 +149,7 @@ const Order = () => {
                             <h1 ref={setRef(category) as LegacyRef<HTMLHeadingElement>}>
                                 {category}
                             </h1>
-                            <ul className={styles.article_container}>
+                            <ul className={styles.articleContainer}>
                                 {
                                     menu[category].map((article) => {
                                         return (
@@ -153,6 +177,8 @@ const Order = () => {
                 cart={cart}  
                 addToCart={addToCart}  
                 removeFromCart={removeFromCart}
+                setConfirmOrderPopup={setConfirmOrderPopup}
+                getTotalPrice={getTotalPrice}
             />
             <div ref={setRef("checkout") as LegacyRef<HTMLDivElement>} />
         </>

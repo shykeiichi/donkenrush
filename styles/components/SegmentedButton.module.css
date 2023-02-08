@@ -10,6 +10,8 @@
     
     display: flex;
     flex-direction: row;
+
+    color: black;
 }
 
 .button:not(:last-child) {

@@ -10,7 +10,9 @@ interface CheckoutProps {
     getCartAsList: () => CartListItem[],
     cart: Cart,
     addToCart: any
-    removeFromCart: any
+    removeFromCart: any,
+    setConfirmOrderPopup: any
+    getTotalPrice: any
 }
 
 const Checkout = (props: CheckoutProps) => {
@@ -23,15 +25,6 @@ const Checkout = (props: CheckoutProps) => {
             }
         })
         return amount
-    }
-
-    const getTotalPrice = (): number => {
-        let totalPrice = 0;
-        props.getCartAsList().forEach((article) => {
-            console.log(article)
-            totalPrice += parseFloat(article.menu.price) * article.cart.length;
-        })
-        return totalPrice;
     }
 
     return (
@@ -110,7 +103,7 @@ const Checkout = (props: CheckoutProps) => {
 
             <div className={styles.totalPrice}>
                 <div>Total Konstnad: </div>
-                <b>{getTotalPrice()} kr</b>
+                <b>{props.getTotalPrice()} kr</b>
             </div>
             <div className={styles.totalPrice}>
                 <i>(Priset kan variera lite)</i>
@@ -119,7 +112,7 @@ const Checkout = (props: CheckoutProps) => {
             <Button 
                 style={{width: 300, marginTop: 20}} 
                 disabled={props["getCartAsList"]().length > 0 ? false : true}
-                onClick={() => {}}
+                onClick={() => props.setConfirmOrderPopup(true)}
             >Beställ Mat</Button>
 
             <div className={styles.spacer} />

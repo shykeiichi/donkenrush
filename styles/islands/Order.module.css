@@ -1,4 +1,4 @@
-.article_container {
+.articleContainer {
     gap: 20px;
     display: flex;
     flex-direction: row;
@@ -13,7 +13,7 @@
 }
 
 @media only screen and (max-width: 1200px) {
-    .article_container {
+    .articleContainer {
         max-width: none;
         width: fit-content;
         flex: 1 0 33%; 
@@ -25,4 +25,27 @@
     flex-direction: row;
     gap: 20px;
     align-items: center;
+}
+
+.popUpBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.popUpBox {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
