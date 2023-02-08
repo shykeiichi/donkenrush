@@ -3,8 +3,24 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 
     max-width: 1100px;
     margin-left: auto;
     margin-right: auto;
+}
+
+@media only screen and (max-width: 1200px) {
+    .article_container {
+        max-width: none;
+        width: fit-content;
+        flex: 1 0 33%; 
+    }
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
 }

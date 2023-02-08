@@ -7,6 +7,10 @@ import Card from '../components/Card';
 import Button from '../components/Button';
 import CardActions from '../components/CardActions';
 import SegmentedButton from '../components/SegmentedButton';
+import Checkout from './Order/Checkout';
+import ArticleCard from './Order/ArticleCard';
+import Index from './Order/Index';
+import useDynamicRefs from 'use-dynamic-refs';
 
 interface Menu {
     [category: string]: Article[]
@@ -24,57 +28,64 @@ interface MenuVariationSelect {
     [category: string]: [article: string] 
 }
 
+interface Cart {
+    [category: string]: [article: string[]]
+}
+
+interface CartListItem {
+    menu: Article,
+    cart: string[],
+    category: string,
+    item: string
+}
+
 const Order = () => {
+
+    const [getRef, setRef] =  useDynamicRefs();
 
     let menu: Menu;
     let setMenu: any;
   
-    [menu, setMenu] = useState({
-      "DefaultCategory": [
-        {
-          "name": "DefaultArticle",
-          "variations": [],
-          "image": "",
-          "url": "",
-          "price": "0,0"
-        }
-      ]
-    })
+    [menu, setMenu] = useState({})
 
     let menuVariationSelect: MenuVariationSelect;
     let setMenuVariationSelect: any;
 
-    [menuVariationSelect, setMenuVariationSelect] = useState({
-        "DefaultCategory": {
-            "DefaultArticle": ""
-        }
-    })
+    [menuVariationSelect, setMenuVariationSelect] = useState({})
 
-    const populateMenuVariationSelect = (menuJson: Menu) => {
-        let temp = {}
-        Object.keys(menuJson).forEach((category) => {
-            console.log("asd")
-            temp[category] = {};
-            menuJson[category].forEach((article) => {
-                if(article.variations.length == 0) {
-                    return;
-                }
+    let cart: Cart;
+    let setCart: any;
 
-                temp[category][article.name] = article.variations[0];
-            })
-        })
-        console.log(temp)
-        setMenuVariationSelect(temp);
-    }
+    [cart, setCart] = useState({})
 
     const populateMenu = async () => {
+        // Populate menu object
+
         let response = await fetch("/api/menu", {
             method: 'GET'
         })
         let jsonResponse = await response.json();
         setMenu(jsonResponse);
 
-        populateMenuVariationSelect(jsonResponse);
+        // Populate Menu Variation Select and Cart
+
+        let menuVariationTemp = {}
+        let cartTemp = {}
+        Object.keys(jsonResponse).forEach((category) => {
+            menuVariationTemp[category] = {};
+            cartTemp[category] = {};
+            jsonResponse[category].forEach((article) => {
+                cartTemp[category][article.name] = []
+
+                if(article.variations.length == 0) {
+                    return;
+                }
+
+                menuVariationTemp[category][article.name] = article.variations[0];
+            })
+        })
+        setMenuVariationSelect(menuVariationTemp);
+        setCart(cartTemp);
     }
   
     useEffect(() => {
@@ -87,54 +98,88 @@ const Order = () => {
         temp[category][article] = variation;
         setMenuVariationSelect(temp);
     }
-    
-    const getMenuVariation = (category: string, article: string): string => {
-        return menuVariationSelect[category][article]
+
+
+    const addToCart = (category: string, article: string, variation:string=undefined) => {
+        let temp: Cart = {...cart}
+        temp[category][article].push(variation)
+        setCart(temp)
+    }
+
+    const removeFromCart = (category: string, article: string, variation:string=undefined) => {
+        let removeIdx = -1;
+        cart[category][article].forEach((item, idx) => {
+            if(item == variation) {
+                removeIdx = idx;
+            }
+        })
+        let temp: Cart = {...cart}
+        if(removeIdx != -1) {
+            temp[category][article].splice(removeIdx, 1);
+        }
+        setCart(temp)
+    }
+
+
+    const getCartAsList = (): CartListItem[] => {
+        let cartList = []
+        Object.keys(cart).forEach((category) => {
+            Object.keys(cart[category]).forEach((articleName) => {
+              let cartItem = cart[category][articleName]
+              if(JSON.stringify(cartItem) == "[]") {
+                return;
+              }
+              cartList.push({
+                "menu": menu[category].find((e) => e.name == articleName),
+                "cart": cartItem,
+                "category": category,
+                "item": articleName
+              })
+            })
+        })
+        return cartList
     }
 
 
     return (
         <>
+            <Index menu={menu} getRef={getRef} />
             {
                 Object.keys(menu).map((category, categoryIdx) => {
-                return (
-                    <div key={category}>
-                        <h1>
-                            {category}
-                        </h1>
-                        <ul className={styles.article_container}>
-                            {
-                                menu[category].map((article, articleIdx) => {
-                                    return (
-                                        <Card 
-                                            value={article.name} 
-                                            imageUrl={article.image} 
-                                            subtext={`${article.price} kr`}
-                                            key={category + article.name}
-                                        >
-                                            <CardActions>
-                                                {
-                                                    article.variations.length != 0 ?
-                                                        <SegmentedButton 
-                                                            fullWidth 
-                                                            buttons={article.variations} 
-                                                            value={getMenuVariation(category, article.name)} 
-                                                            onChange={(variation) => {setMenuVariation(category, article.name, variation); setMenuVariationSelect({...menuVariationSelect})}} 
-                                                        /> : ""
-                                                }
-                                                <Button fullWidth>
-                                                    Add
-                                                </Button>
-                                            </CardActions>
-                                        </Card>
-                                    )
-                                })
-                            }
-                        </ul>
-                    </div>
-                )
+                    return (
+                        <div key={"Order" + category}>
+                            <h1 ref={setRef(category)}>
+                                {category}
+                            </h1>
+                            <ul className={styles.article_container}>
+                                {
+                                    menu[category].map((article) => {
+                                        return (
+                                            <ArticleCard 
+                                                article={article}
+                                                category={category}
+                                                menuVariationSelect={menuVariationSelect}
+                                                setMenuVariation={setMenuVariation}
+                                                setMenuVariationSelect={setMenuVariationSelect}
+                                                menuVariationSelect={menuVariationSelect}
+                                                addToCart={addToCart}
+                                                cart={cart}
+                                            />
+                                        )
+                                    })
+                                }
+                            </ul>
+                        </div>
+                    )
                 })
             }
+            <Checkout 
+                getCartAsList={getCartAsList} 
+                cart={cart}  
+                addToCart={addToCart}  
+                removeFromCart={removeFromCart}
+            />
+            <div ref={setRef("checkout")} />
         </>
     )
 }

@@ -1,0 +1,31 @@
+.divider {
+    border-bottom: 1px solid lightgray;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    .divider {
+        width: 90%;
+    }
+}
+
+.spacer {
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30px;
+}
+
+.totalPrice {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: max-content;
+}
