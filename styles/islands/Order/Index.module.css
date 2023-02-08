@@ -1,5 +1,5 @@
 .container {
-    width: 250px;
+    width: 300px;
     text-align: left;
     font-size: 20px;
     position: fixed;
@@ -7,6 +7,23 @@
 
 .item {
     cursor: pointer;
+    margin-top: 5px;
+    list-style: none;
+    font-size: 22px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: all 100ms;
+    padding-left: 10px;
+}
+
+.item:hover {
+    background-color: rgb(240, 240, 240);
+    filter: var(--elevation-1);
+}
+
+.item:active {
+    background-color: rgb(235, 235, 235);
+    filter: none;
 }
 
 @media only screen and (max-width: 1600px) {
