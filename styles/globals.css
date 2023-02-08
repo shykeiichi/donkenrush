@@ -3,3 +3,13 @@
 :root {
   font-family: 'Roboto', sans-serif;
 }
+
+table, th, td {
+  margin: auto;
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 5px;
+}

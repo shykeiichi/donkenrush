@@ -94,6 +94,37 @@ export default function PurchasePage() {
     setCart(carttemp)
   }
 
+  function addToCartItemVariation(item, category, variation) {
+    let carttemp = {...cart};
+    carttemp[category][item].push(variation)
+    setCart(carttemp)
+  }
+
+  function removeCartItemVariation(item, category, variation) {
+    let carttemp = {...cart};
+    let setidx = -1;
+    cart[category][item].forEach((val, idx) => {
+      if(val == variation) {
+        setidx = idx;
+        return;
+      }
+    }) 
+    if(setidx != -1) { 
+      carttemp[category][item].splice(setidx, 1)  
+    }
+    setCart(carttemp)
+  }
+
+  function getAmountOfItemsWithVariation(item, category, variation)  {
+    let amount = 0
+    cart[category][item].forEach((item, idx) => {
+      if(item == variation) {
+        amount++;
+      }
+    })
+    return amount
+  }
+
   function getCartItem(item, category) {
     return cart[category][item]
   }
@@ -160,6 +191,8 @@ export default function PurchasePage() {
     })
     return totalPrice
   }
+
+
 
   useEffect(() => {
     getMenu();
@@ -269,53 +302,73 @@ export default function PurchasePage() {
         }
         <div className={styles.spacer}></div>
         <h1 ref={setRef("checkout")} className={styles.h1}>Checkout</h1>
-        {/* {
-          getCartItem(val2["name"], val).map((cartItem, cartItemIdx) => {
-            return (
-              <Button variant="outlined" size="large" fullWidth onClick={() => removeCartItem(val2["name"], val, cartItemIdx)}>{val2["name"] + (cartItem != undefined ? " (" + cartItem + ")" : "")}</Button>
-            )
-          })
-        }  */}
-        <ul className={styles.card_container}>
-          {
-            getCartAsList().map((item, itemIdx) => {
-              let menuItem = item["menu"]
-              let cartItem = item["cart"]
-              return (
-                <Card sx={{position: "relative", width: 240}} key={item["category"] + item["name"] + JSON.stringify(item)}>
-                  <CardMedia
-                    sx={{ height: 300, marginTop: "-120px"}}
-                    image={menuItem["image"]}
-                    title={menuItem["name"]}
-                  />
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div"> {/*för att få alla cards lika stora >> height={"7ch"}*/}
-                      {menuItem["name"]}
-                    </Typography>
-                    <Typography gutterBottom variant="h6" component="div" fontSize={18} className={styles.info_container}>
-                      <div>{menuItem["price"]} kr</div>
-                      { menuItem["url"] != "" ?
-                        <a className={styles.more_info} href={menuItem["url"]}>Mer info</a>
-                      : "" }
-                    </Typography>
-                  </CardContent>
-                  {
-                    cartItem.map((val, idx) => {
-                      return (
-                        <CardActions key={val + item["category"] + item["name"] + JSON.stringify(item)}>
-                          <Button size="large" variant="contained" fullWidth onClick={() => removeCartItem(menuItem["name"], item["category"], idx)} color="error">{"Remove" + (val != undefined ? " (" + val + ")" : "")}</Button>
-                        </CardActions>
-                      )
-                    })
+          <table>
+            <thead>
+              <tr>
+                <th>
+                  Artikel
+                </th>
+                <th>
+                  Mängd
+                </th>
+                <th>
+                  Pris
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                getCartAsList().map((item, idx) => {
+                  // console.log(`${item.menu.variations.length} vari`)
+                  if(item.menu.variations.length == 0) {
+                    return (
+                      <tr key={idx}>
+                        <td>
+                          {item["menu"]["name"]}
+                        </td>
+                        <td>
+                          <button onClick={() => console.log(cart)}>a</button>
+                          <button onClick={() => removeCartItem(item["menu"]["name"], item["category"], 0)}>-</button>
+                          {item["cart"].length}
+                          <button onClick={() => addToCartItem(item["menu"]["name"], item["category"])}>+</button>
+                        </td>
+                        <td>
+                          {parseFloat(item["menu"]["price"]) * item["cart"].length} kr
+                        </td>
+                      </tr>
+                    )
                   }
-                </Card>)
+
+                  return item["menu"]["variations"].map((variation, variationIdx) => {
+                    if(getAmountOfItemsWithVariation(item["menu"]["name"], item["category"], variation) == 0) {
+                      console.log('asd')
+                      return;
+                    }
+                    return (
+                      <tr key={variation + item["menu"]["name"]}>
+                        <td>
+                          {item["menu"]["name"]} ({variation})
+                        </td>
+                        <td>
+                          <div className={styles.reciept_div}>
+                            <button onClick={() => console.log(item)}>a</button>
+                            <button onClick={() => removeCartItemVariation(item["menu"]["name"], item["category"], variation)}>-</button>
+                            <div>
+                              {getAmountOfItemsWithVariation(item["menu"]["name"], item["category"], variation)}
+                            </div>
+                            <button onClick={() => addToCartItemVariation(item["menu"]["name"], item["category"], variation)}>+</button>
+                          </div>
+                        </td>
+                        <td>
+                          {parseFloat(item["menu"]["price"]) * getAmountOfItemsWithVariation(item["menu"]["name"], item["category"], variation)} kr
+                        </td>
+                      </tr>
+                    )
+                  })
+                })
               }
-            )}
-            {
-              JSON.stringify(getCartAsList()) == "[]" ?
-              <p>Shopping cart empty</p> : ""
-            }
-          </ul>
+            </tbody>
+          </table>
           <div className={styles.h1}>
             <div>
               Total Price: <b>{getTotalPrice()} kr</b>
@@ -323,7 +376,7 @@ export default function PurchasePage() {
             <div style={{color: "gray`"}}>
               (Priset kan variera lite)
             </div>
-            <Button variant="contained" size="large" color="success" className={styles.confirm_button} disabled={JSON.stringify(getCartAsList()) == "[]" ? true : false} onClick={() => confirmOrder()}>Confirm Order</Button>
+            <Button variant="contained" size="large" className={styles.confirm_button} disabled={JSON.stringify(getCartAsList()) == "[]" ? true : false} onClick={() => confirmOrder()}>Confirm Order</Button>
           </div>
           <div className={styles.footer}></div>
       </main>

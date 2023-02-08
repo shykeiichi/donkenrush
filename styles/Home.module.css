@@ -160,3 +160,10 @@
   align-items: center;
   justify-content: center;
 }
+
+.reciept_div {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  width: max-content;
+}

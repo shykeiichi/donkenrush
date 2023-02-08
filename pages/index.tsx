@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSession, signIn, signOut } from "next-auth/react"
-import PurchasePage from '@/src/component/purchase'
+import PurchasePage from '@/src/component/Purchase'
 import { Button } from '@mui/material'
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
