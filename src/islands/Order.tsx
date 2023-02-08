@@ -12,8 +12,11 @@ import ArticleCard from './Order/ArticleCard';
 import Index from './Order/Index';
 import useDynamicRefs from 'use-dynamic-refs';
 import { Menu, Article, MenuVariationSelect, Cart, CartListItem } from '@/src/interfaces'
+import { useSession } from 'next-auth/react';
 
 const Order = () => {
+
+    const { data: session } = useSession()
 
     const [getRef, setRef] =  useDynamicRefs();
 
@@ -62,7 +65,17 @@ const Order = () => {
         setCart(cartTemp);
     }
   
-    useEffect(() => {
+    useEffect(async () => {
+        let response = fetch(`/api/getOrder?email=${session.user.email}`)
+        let json = await response.json()
+        if(response.status == 200) {
+            return (
+                <div>
+                    You have already ordered
+                </div>
+            )
+        }
+
         populateMenu();
     }, [])
 
