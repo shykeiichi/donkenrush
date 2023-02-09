@@ -31,7 +31,11 @@ export async function setOrders(data: object) {
   
     const dataDirectory = path.join(process.cwd(), 'data');
     const backupDirectory = path.join(process.cwd(), 'data', 'backup');
-  
-    await fs.writeFile(backupDirectory + `/orders-${date}.json`, JSON.stringify(await getOrders()));
+
+    try {
+        await fs.writeFile(backupDirectory + `/orders-${date}.json`, JSON.stringify(await getOrders()));
+    } catch {
+        
+    }
     await fs.writeFile(dataDirectory + '/orders.json', JSON.stringify(data));
 }

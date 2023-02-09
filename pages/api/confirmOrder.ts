@@ -26,7 +26,9 @@ export default async function handler(
     orders[req.body.email] = {
         email: req.body.email,
         name: req.body.name,
-        order: req.body.order
+        order: req.body.order,
+        cost: req.body.cost,
+        hasPaid: false
     }
 
     setOrders(orders)

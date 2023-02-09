@@ -23,13 +23,17 @@ const RecieptRow = (props: RecieptRowProps) => {
             </td>
             <td>
                 <div>
-                    <Button size="small" onClick={() => props.removeFromCart(props.article.category, props.article.item, props.variation)}>
-                        -
-                    </Button>
+                    { props.removeFromCart ?
+                        <Button size="small" onClick={() => props.removeFromCart(props.article.category, props.article.item, props.variation)}>
+                            -
+                        </Button> : ""
+                    }
                     {props.amount}
-                    <Button size="small" onClick={() => props.addToCart(props.article.category, props.article.item, props.variation)}>
-                        +
-                    </Button>
+                    { props.addToCart ?
+                        <Button size="small" onClick={() => props.addToCart(props.article.category, props.article.item, props.variation)}>
+                            +
+                        </Button> : ""
+                    }
                 </div>
             </td>
             <td>

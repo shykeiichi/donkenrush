@@ -20,7 +20,7 @@ const Button = (props: ButtonProps) => {
                           styles.smallButton,
                         props.disabled ? styles.disabled : "",
                       ].join(" ")} 
-            onClick={() => !props.disabled ? props.onClick() : {}}
+            onClick={() => !props.disabled ? props.onClick ? props.onClick() : {} : {}}
             style={props.style}
     >
         {props.children}
