@@ -13,8 +13,8 @@ export default async function handler(
 
     let orders = await getOrders();
 
-    if (Object.keys(orders).includes(req.query.email)) {
-        res.status(200).json(orders[req.query.email])
+    if (Object.keys(orders).includes(req.query.email as string)) {
+        res.status(200).json(orders[req.query.email as string])
     } else {
         res.status(200).send("No order")
     }

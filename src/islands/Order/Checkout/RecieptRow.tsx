@@ -11,8 +11,8 @@ interface RecieptRowProps {
     article: any,
     variation: string,
 
-    removeFromCart: (category: string, article: string, variation: string) => void,
-    addToCart: (category: string, article: string, variation: string) => void,
+    removeFromCart?: (category: string, article: string, variation: string) => void,
+    addToCart?: (category: string, article: string, variation: string) => void,
 }
 
 const RecieptRow = (props: RecieptRowProps) => {

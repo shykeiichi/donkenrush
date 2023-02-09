@@ -3,6 +3,7 @@ import RecieptRow from '@/src/islands/Order/Checkout/RecieptRow';
 import React, { useEffect, useState } from 'react'
 import styles from '@/styles/islands/Orders.module.css'
 import { TextField } from '@mui/material';
+import { CartListItem } from '@/src/interfaces';
 
 const Orders = () => {
 
@@ -38,7 +39,7 @@ const Orders = () => {
         setOrders(json);
     };
 
-    const getOrderAsList = (email) => {
+    const getOrderAsList = (email: string) => {
         let cartList: CartListItem[] = []
         Object.keys(orders[email]["order"]).forEach((category) => {
             Object.keys(orders[email]["order"][category]).forEach((articleName) => {
@@ -50,7 +51,7 @@ const Orders = () => {
               }
 
               cartList.push({
-                "menu": menu[category].find((e) => e.name == articleName),
+                "menu": menu[category].find((e: any) => e.name == articleName),
                 "cart": cartItem,
                 "category": category,
                 "item": articleName
@@ -114,7 +115,7 @@ const Orders = () => {
                         }
 
                         return (
-                            <div className={styles.orderContainer}>
+                            <div className={styles.orderContainer} key={JSON.stringify(orders[email])}>
                                 <h1>
                                     {orders[email]["name"]}
                                 </h1>

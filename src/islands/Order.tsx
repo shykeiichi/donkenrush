@@ -143,7 +143,7 @@ const Order = () => {
     const getPurgedCart = () => {
         let newCart = {...cart}
         Object.keys(cart).forEach((category) => {
-            newCart[category] = {}
+            newCart[category] = {} as [article: string[]]
             Object.keys(cart[category]).forEach((article) => {
                 if(cart[category][article].length == 0) {
                     return;
