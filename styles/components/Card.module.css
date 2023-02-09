@@ -17,3 +17,10 @@
     object-fit: cover;
     object-position: bottom;
 }
+
+@media only screen and (max-width: 520px) {
+    .container {
+        width: 90%;
+        height: 50%;
+    }
+}
