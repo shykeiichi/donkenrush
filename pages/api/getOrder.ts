@@ -16,6 +16,6 @@ export default async function handler(
     if (Object.keys(orders).includes(req.query.email)) {
         res.status(200).json(orders[req.query.email])
     } else {
-        res.status(400).send("No email")
+        res.status(200).send("No order")
     }
 }

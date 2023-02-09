@@ -64,17 +64,23 @@ const Order = () => {
         setMenuVariationSelect(menuVariationTemp);
         setCart(cartTemp);
     }
-  
-    useEffect(async () => {
-        let response = fetch(`/api/getOrder?email=${session.user.email}`)
+
+    let [ordered, setOrdered] = useState(false)
+
+    const checkLogin = async () => {
+        let response = await fetch(`/api/getOrder?email=${session.user.email}`)
+        if(response.status == 400) {
+            return;
+        }
+
         let json = await response.json()
         if(response.status == 200) {
-            return (
-                <div>
-                    You have already ordered
-                </div>
-            )
+            setOrdered(true)
         }
+    }
+  
+    useEffect(() => {
+        checkLogin();
 
         populateMenu();
     }, [])
@@ -110,7 +116,6 @@ const Order = () => {
     const getTotalPrice = (): number => {
         let totalPrice = 0;
         getCartAsList().forEach((article) => {
-            console.log(article)
             totalPrice += parseFloat(article.menu.price) * article.cart.length;
         })
         return totalPrice;
@@ -135,65 +140,113 @@ const Order = () => {
         return cartList
     }
 
+    const getPurgedCart = () => {
+        let newCart = {...cart}
+        Object.keys(cart).forEach((category) => {
+            newCart[category] = {}
+            Object.keys(cart[category]).forEach((article) => {
+                if(cart[category][article].length == 0) {
+                    return;
+                }
+                newCart[category][article] = cart[category][article]
+            })
+        })
+
+        Object.keys(newCart).forEach((category) => {
+            if(Object.keys(newCart[category]).length == 0) {
+                delete newCart[category]
+            }
+        })
+        return newCart
+    }
+
     let [confirmOrderPopup, setConfirmOrderPopup] = useState(false)
+
+    const sendOrder = async () => {
+        setOrdered(true)
+        setConfirmOrderPopup(false)
+
+        let response = await fetch("/api/confirmOrder", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify({
+                email: session.user.email,
+                name: session.user.name,
+                cost: getTotalPrice(),
+                order: getPurgedCart()
+            })  
+        })
+    }
 
     return (
         <>
-            {
-                confirmOrderPopup ? 
-                <div className={styles.popUpBackground}>
-                    <div className={styles.popUpBox}>
-                        <span>
-                            Bekräfta beställning på <b>{getTotalPrice()} kr</b>
-                        </span>
-                        <div className={styles.spacer} />
-                        <div className={styles.spacer} />
-                        <Button onClick={() => {}}>Ja</Button>
-                        <Button onClick={() => setConfirmOrderPopup(false)} >Nej</Button>
+            {   
+                !ordered ?
+                    <>
+                        {
+                            confirmOrderPopup ? 
+                            <div className={styles.popUpBackground}>
+                                <div className={styles.popUpBox}>
+                                    <span>
+                                        Bekräfta beställning på <b>{getTotalPrice()} kr</b>
+                                    </span>
+                                    <div className={styles.spacer} />
+                                    <div className={styles.spacer} />
+                                    <Button onClick={() => sendOrder()}>Ja</Button>
+                                    <Button onClick={() => setConfirmOrderPopup(false)} >Nej</Button>
+                                </div>
+                            </div> : ""
+                        }
+
+                        <Index menu={menu} getRef={getRef} />
+                        {
+                            Object.keys(menu).map((category, categoryIdx) => {
+                                return (
+                                    <div key={"Order" + category}>
+                                        <h1 ref={setRef(category) as LegacyRef<HTMLHeadingElement>}>
+                                            {category}
+                                        </h1>
+                                        <ul className={styles.articleContainer}>
+                                            {
+                                                menu[category].map((article) => {
+                                                    return (
+                                                        <ArticleCard 
+                                                            article={article}
+                                                            category={category}
+                                                            menuVariationSelect={menuVariationSelect}
+                                                            setMenuVariation={setMenuVariation}
+                                                            setMenuVariationSelect={setMenuVariationSelect}
+                                                            addToCart={addToCart}
+                                                            cart={cart}
+
+                                                            key={"ac" + JSON.stringify(article)}
+                                                        />
+                                                    )
+                                                })
+                                            }
+                                        </ul>
+                                    </div>
+                                )
+                            })
+                        }
+                        <Checkout 
+                            getCartAsList={getCartAsList} 
+                            cart={cart}  
+                            addToCart={addToCart}  
+                            removeFromCart={removeFromCart}
+                            setConfirmOrderPopup={setConfirmOrderPopup}
+                            getTotalPrice={getTotalPrice}
+                        />
+                        <div ref={setRef("checkout") as LegacyRef<HTMLDivElement>} />
+                    </>
+                :
+                    <div>
+                        Mat beställd!
                     </div>
-                </div> : ""
             }
-
-            <Index menu={menu} getRef={getRef} />
-            {
-                Object.keys(menu).map((category, categoryIdx) => {
-                    return (
-                        <div key={"Order" + category}>
-                            <h1 ref={setRef(category) as LegacyRef<HTMLHeadingElement>}>
-                                {category}
-                            </h1>
-                            <ul className={styles.articleContainer}>
-                                {
-                                    menu[category].map((article) => {
-                                        return (
-                                            <ArticleCard 
-                                                article={article}
-                                                category={category}
-                                                menuVariationSelect={menuVariationSelect}
-                                                setMenuVariation={setMenuVariation}
-                                                setMenuVariationSelect={setMenuVariationSelect}
-                                                addToCart={addToCart}
-                                                cart={cart}
-
-                                                key={"ac" + JSON.stringify(article)}
-                                            />
-                                        )
-                                    })
-                                }
-                            </ul>
-                        </div>
-                    )
-                })
-            }
-            <Checkout 
-                getCartAsList={getCartAsList} 
-                cart={cart}  
-                addToCart={addToCart}  
-                removeFromCart={removeFromCart}
-                setConfirmOrderPopup={setConfirmOrderPopup}
-                getTotalPrice={getTotalPrice}
-            />
-            <div ref={setRef("checkout") as LegacyRef<HTMLDivElement>} />
         </>
     )
 }
