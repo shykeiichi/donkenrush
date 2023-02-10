@@ -42,7 +42,7 @@ const OrdersIndividual = (props: OrdersIndividualProps) => {
                     return (
                         <div key={email} className={styles.individual}>
                             <h3>
-                                {props.orders[email].name} <ToggleButton size="small" value={props.orders[email].hasPaid} onClick={(value) => { props.setPaid(email, value); props.setOrders(props.orders) }}>Has Paid</ToggleButton>
+                                {props.orders[email].name} <ToggleButton size="small" value={props.orders[email].hasPaid} onClick={(value) => { props.setPaid(email, value); props.setOrders(props.orders) }}>{ props.orders[email].hasPaid ? "Has Paid" : "Hasn't paid" }</ToggleButton>
                             </h3>
                             <table>
                                 <thead>
