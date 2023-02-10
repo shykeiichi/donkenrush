@@ -17,7 +17,7 @@ const Button = (props: ButtonProps) => {
                         ["medium", undefined].includes(props.size) ? 
                           styles.mediumButton : 
                           styles.smallButton,
-                        props.disabled ? styles.disabled : "",
+                        props.disabled ? styles.disabled : ""
                       ].join(" ")} 
             onClick={() => !props.disabled ? props.onClick ? props.onClick() : {} : {}}
             style={props.style}
