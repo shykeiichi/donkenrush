@@ -7,11 +7,5 @@ export default async function handler(
   res: NextApiResponse<any>
 ) {
     let config = await getConfig();
-
-    if(!config.staffemail.includes(req.body.email)) {
-      res.status(400).send("No permission")
-    }
-
-    let orders = await getOrders();
-    res.status(200).json(orders)
+    res.status(200).json(config)
 }

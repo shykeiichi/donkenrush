@@ -25,3 +25,8 @@ export interface CartListItem {
     category: string,
     item: string
 }
+
+export interface Config {
+    staffemail: string[],
+    ordersOpen: boolean
+}

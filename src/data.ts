@@ -1,5 +1,6 @@
 import path from 'path';
 import { promises as fs } from 'fs';
+import { Config } from './interfaces';
 
 export async function getData() {
     const jsonDirectory = path.join(process.cwd(), 'data');
@@ -38,4 +39,16 @@ export async function setOrders(data: object) {
         
     }
     await fs.writeFile(dataDirectory + '/orders.json', JSON.stringify(data));
+}
+
+export async function getConfig(): Config {
+    const jsonDirectory = path.join(process.cwd(), 'data');
+    const fileContents = await fs.readFile(jsonDirectory + '/config.json', 'utf8');
+    let parsed = {}
+    try {
+        parsed = JSON.parse(fileContents);
+    } catch {
+        parsed = {"err": "no"}
+    }
+    return parsed as Config
 }

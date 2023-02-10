@@ -1,6 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getData, getOrders, setOrders } from '@/src/data'
+import { getConfig, getData, getOrders, setOrders } from '@/src/data'
 
 export default async function handler(
   req: NextApiRequest,
@@ -18,6 +18,12 @@ export default async function handler(
 
     if(req.body.order == undefined) {
         res.status(400).send("No order")
+        return;
+    }
+
+    let config = await getConfig();
+    if(!config.ordersOpen) {
+        res.status(400).send("Orders aren't open")
         return;
     }
 

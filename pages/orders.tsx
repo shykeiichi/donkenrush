@@ -3,14 +3,28 @@ import OrdersIsland from "@/src/islands/Orders"
 import OrdersIndividual from "@/src/islands/Orders/OrdersIndividual"
 import { useEffect, useState } from "react"
 import styles from "@/styles/islands/Orders.module.css"
+import { useSession } from "next-auth/react"
+import { Config } from "@/src/interfaces"
 
 const Orders = () => {
+    const { data: session } = useSession()
+
     let [orders, setOrders] = useState({})
     let [menu, setMenu] = useState({})
 
     let [tab, setTab] = useState("Total")
 
+    let config: Config;
+    let setConfig: any;
+    [config, setConfig] = useState({})
+
     const fetchData = async () => {
+        let responseOrdersOpen = await fetch(`/api/getConfig`)
+        let jsonOrders = await responseOrdersOpen.json()
+        if(responseOrdersOpen.status == 200) {
+            setConfig(jsonOrders as Config);
+        }        
+
         let menuResponse = await fetch("/api/menu");
         let menuJson = await menuResponse.json();
         setMenu(menuJson);
@@ -28,6 +42,7 @@ const Orders = () => {
             },
             body: JSON.stringify({
                 "orders": value,
+                "email": session.user.email
             })
         });
     }
@@ -68,12 +83,31 @@ const Orders = () => {
     return (
         <>
             <div className={styles.container}>
-                <SegmentedButton buttons={["Total", "Individual"]} value={tab} onChange={(value) => setTab(value)} style={{width: 400}}/>
-                { tab=="Total" ?
-                    <OrdersIsland orderList={getOrdersAsList()} />
-                : 
-                    <OrdersIndividual orders={orders} menu={menu} setPaid={setPaid} setOrders={setServerOrders} />
-                }
+                { 
+                    config.staffemail ? config.staffemail.includes(session.user.email) ?
+                        <>
+                            {
+                                !config.ordersOpen ?
+                                    <>
+                                        <SegmentedButton buttons={["Total", "Individual"]} value={tab} onChange={(value) => setTab(value)} style={{width: 400}}/>
+                                        { tab=="Total" ?
+                                            <OrdersIsland orderList={getOrdersAsList()} />
+                                        : 
+                                            <OrdersIndividual orders={orders} menu={menu} setPaid={setPaid} setOrders={setServerOrders} />
+                                        }
+                                    </>
+                                :
+                                    <div>
+                                        Beställningar är öppna och därför är beställnings panelen stängd för att undvika problem
+                                    </div>
+                                : <div></div>
+                            }
+                        </>
+                    :
+                        <div>
+                            Du har inte tillåtelse att se beställningarna
+                        </div>
+                    }    
             </div>
         </>
     )

@@ -68,9 +68,17 @@ const Order = () => {
     }
 
     let [ordered, setOrdered] = useState(false)
+    let [ordersOpen, setOrdersOpen] = useState(true)
 
     // Check if user has already ordered
-    const checkLogin = async () => {
+    const authenticate = async () => {
+        let responseOrdersOpen = await fetch(`/api/getConfig`)
+        let jsonOrders = await responseOrdersOpen.json()
+        if(responseOrdersOpen.status == 200) {
+            setOrdersOpen(jsonOrders["ordersOpen"]);
+        }        
+
+
         let response = await fetch(`/api/getOrder?email=${session.user.email}`)
         if(response.status == 400) {
             return;
@@ -83,7 +91,7 @@ const Order = () => {
     }
   
     useEffect(() => {
-        checkLogin();
+        authenticate();
 
         populateMenu();
     }, [])
@@ -195,65 +203,70 @@ const Order = () => {
         <>
             {   
                 !ordered ?
-                    <>
-                        {
-                            confirmOrderPopup ? 
-                            <div className={styles.popUpBackground}>
-                                <div className={styles.popUpBox}>
-                                    <span>
-                                        Bekräfta beställning på <b>{getTotalPrice()} kr</b>
-                                    </span>
-                                    <div className={styles.spacer} />
-                                    <div className={styles.spacer} />
-                                    <Button onClick={() => sendOrder()}>Ja</Button>
-                                    <Button onClick={() => setConfirmOrderPopup(false)} >Nej</Button>
-                                </div>
-                            </div> : ""
-                        }
-
-                        {/* <Button><ShoppingCartIcon /></Button> */}
-
-                        <Index menu={menu} getRef={getRef} />
-                        {
-                            Object.keys(menu).map((category, categoryIdx) => {
-                                return (
-                                    <div key={"Order" + category}>
-                                        <h1 ref={setRef(category) as LegacyRef<HTMLHeadingElement>}>
-                                            {category}
-                                        </h1>
-                                        <ul className={styles.articleContainer}>
-                                            {
-                                                menu[category].map((article) => {
-                                                    return (
-                                                        <ArticleCard 
-                                                            article={article}
-                                                            category={category}
-                                                            menuVariationSelect={menuVariationSelect}
-                                                            setMenuVariation={setMenuVariation}
-                                                            setMenuVariationSelect={setMenuVariationSelect}
-                                                            addToCart={addToCart}
-                                                            cart={cart}
-
-                                                            key={"ac" + JSON.stringify(article)}
-                                                        />
-                                                    )
-                                                })
-                                            }
-                                        </ul>
+                    ordersOpen ?
+                        <>
+                            {
+                                confirmOrderPopup ? 
+                                <div className={styles.popUpBackground}>
+                                    <div className={styles.popUpBox}>
+                                        <span>
+                                            Bekräfta beställning på <b>{getTotalPrice()} kr</b>
+                                        </span>
+                                        <div className={styles.spacer} />
+                                        <div className={styles.spacer} />
+                                        <Button onClick={() => sendOrder()}>Ja</Button>
+                                        <Button onClick={() => setConfirmOrderPopup(false)} >Nej</Button>
                                     </div>
-                                )
-                            })
-                        }
-                        <Checkout 
-                            getCartAsList={getCartAsList} 
-                            cart={cart}  
-                            addToCart={addToCart}  
-                            removeFromCart={removeFromCart}
-                            setConfirmOrderPopup={setConfirmOrderPopup}
-                            getTotalPrice={getTotalPrice}
-                        />
-                        <div ref={setRef("checkout") as LegacyRef<HTMLDivElement>} />
-                    </>
+                                </div> : ""
+                            }
+
+                            {/* <Button><ShoppingCartIcon /></Button> */}
+
+                            <Index menu={menu} getRef={getRef} />
+                            {
+                                Object.keys(menu).map((category, categoryIdx) => {
+                                    return (
+                                        <div key={"Order" + category}>
+                                            <h1 ref={setRef(category) as LegacyRef<HTMLHeadingElement>}>
+                                                {category}
+                                            </h1>
+                                            <ul className={styles.articleContainer}>
+                                                {
+                                                    menu[category].map((article) => {
+                                                        return (
+                                                            <ArticleCard 
+                                                                article={article}
+                                                                category={category}
+                                                                menuVariationSelect={menuVariationSelect}
+                                                                setMenuVariation={setMenuVariation}
+                                                                setMenuVariationSelect={setMenuVariationSelect}
+                                                                addToCart={addToCart}
+                                                                cart={cart}
+
+                                                                key={"ac" + JSON.stringify(article)}
+                                                            />
+                                                        )
+                                                    })
+                                                }
+                                            </ul>
+                                        </div>
+                                    )
+                                })
+                            }
+                            <Checkout 
+                                getCartAsList={getCartAsList} 
+                                cart={cart}  
+                                addToCart={addToCart}  
+                                removeFromCart={removeFromCart}
+                                setConfirmOrderPopup={setConfirmOrderPopup}
+                                getTotalPrice={getTotalPrice}
+                            />
+                            <div ref={setRef("checkout") as LegacyRef<HTMLDivElement>} />
+                        </>
+                    : 
+                        <div>
+                            Beställningar är avslutade
+                        </div>
                 :
                     <div>
                         Mat beställd!
