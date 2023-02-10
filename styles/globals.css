@@ -2,12 +2,14 @@
 
 :root {
   font-family: 'Poppins', sans-serif;
-  --orange: #ffb04a;
+  --orange: hsl(34, 100%, 65%);
   --orange-hover: hsl(34, 100%, 56%);
   --orange-press: hsl(34, 100%, 52%);
   --orange-light: hsl(34, 100%, 90%);
 
-  --gray: #efefef;
+  --gray: hsl(0, 0%, 94%);
+  --gray-hover: hsl(0, 0%, 85%);
+  --gray-press: hsl(0, 0%, 81%);
   --darkgray: #323232;
 
   --elevation-1: drop-shadow(0px 1px 1px lightgray);

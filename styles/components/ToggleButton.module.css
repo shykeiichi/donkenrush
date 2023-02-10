@@ -1,0 +1,75 @@
+.container {
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 100ms;
+    color: black;
+}
+
+.container:hover {
+    filter: var(--elevation-1);
+}
+
+.container:active {
+    
+    filter: none;
+}
+
+.on {
+    background-color: var(--orange);
+}
+
+.on:hover {
+    background-color: var(--orange-hover);
+}
+
+.on:active {
+    background-color: var(--orange-press);
+}
+
+.off {
+    background-color: var(--gray);
+}
+
+.off:hover {
+    background-color: var(--gray-hover);
+}
+
+.off:active {
+    background-color: var(--gray-press);
+}
+
+.disabled {
+    background-color: rgba(150, 150, 150, 0.5);
+    color: rgba(255, 255, 255, 0.9);
+    cursor:default;
+}
+
+.disabled:hover {
+    background-color: rgba(150, 150, 150, 0.5);
+    color: rgba(255, 255, 255, 0.9);
+    filter: none;
+}
+
+.disabled:active {
+    background-color: rgba(150, 150, 150, 0.5);
+    color: rgba(255, 255, 255, 0.9);
+    filter: none;
+}
+
+.mediumButton {
+    font-size: 14px;
+    padding-left: 24px;
+    padding-right: 24px;
+    height: 40px;
+}
+
+.smallButton {
+    font-size: 14px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.fullWidthModifier {
+    width: 100%;
+}

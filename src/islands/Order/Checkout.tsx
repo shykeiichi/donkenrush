@@ -17,6 +17,7 @@ interface CheckoutProps {
 
 const Checkout = (props: CheckoutProps) => {
 
+    // Get amount of items ordered of a specific variation for a specific article
     const getAmountOfVariation = (category: string, article: string, variation: string): number => {
         let amount = 0;
         props.cart[category][article].forEach((item: string) => {

@@ -35,6 +35,7 @@ const Order = () => {
 
     [cart, setCart] = useState({})
 
+    // Populate menu and cart with empty items to avoid errors
     const populateMenu = async () => {
         // Populate menu object
 
@@ -67,6 +68,7 @@ const Order = () => {
 
     let [ordered, setOrdered] = useState(false)
 
+    // Check if user has already ordered
     const checkLogin = async () => {
         let response = await fetch(`/api/getOrder?email=${session.user.email}`)
         if(response.status == 400) {
@@ -86,6 +88,7 @@ const Order = () => {
     }, [])
 
 
+    // Set the variation of an article eg from "Liten" to "Stor" for a specific article
     const setMenuVariation = (category: string, article: string, variation: string) => {
         let temp: MenuVariationSelect = menuVariationSelect;
         temp[category][article as keyof MenuVariationSelect] = variation;
@@ -93,12 +96,14 @@ const Order = () => {
     }
 
 
+    // Add item to cart
     const addToCart = (category: string, article: string, variation:string=undefined) => {
         let temp: Cart = {...cart}
         temp[category][article].push(variation)
         setCart(temp)
     }
 
+    // Remove item from cart
     const removeFromCart = (category: string, article: string, variation:string=undefined) => {
         let removeIdx = -1;
         cart[category][article].forEach((item: string, idx: number) => {
@@ -113,6 +118,7 @@ const Order = () => {
         setCart(temp)
     }
 
+    // Get the total price of the cart
     const getTotalPrice = (): number => {
         let totalPrice = 0;
         getCartAsList().forEach((article) => {
@@ -121,6 +127,7 @@ const Order = () => {
         return totalPrice;
     }
 
+    // Get cart without categories as a list
     const getCartAsList = (): CartListItem[] => {
         let cartList: CartListItem[] = []
         Object.keys(cart).forEach((category) => {
@@ -140,6 +147,7 @@ const Order = () => {
         return cartList
     }
 
+    // Get cart without all empty items
     const getPurgedCart = () => {
         let newCart = {...cart}
         Object.keys(cart).forEach((category) => {
@@ -162,6 +170,7 @@ const Order = () => {
 
     let [confirmOrderPopup, setConfirmOrderPopup] = useState(false)
 
+    // Send order to server
     const sendOrder = async () => {
         setOrdered(true)
         setConfirmOrderPopup(false)

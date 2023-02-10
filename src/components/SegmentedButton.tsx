@@ -4,6 +4,7 @@ import styles from '@/styles/components/SegmentedButton.module.css'
 interface SegmentedButtonProps {
     buttons: string[],
     value: string,
+    style: any,
     onChange?: (value: string) => void,
     fullWidth?: boolean
 }
@@ -13,14 +14,14 @@ const SegmentedButton = (props: SegmentedButtonProps) => {
 
     if(!props.buttons) {
         return (
-            <div className={containerStyles}>
+            <div className={containerStyles} style={props.style}>
                 Buttons not defined
             </div>
         )
     }
         
     return (
-        <div className={containerStyles}>
+        <div className={containerStyles} style={props.style}>
             {
                 props.buttons.map((item, idx) => {
                     return (

@@ -1,16 +1,17 @@
 import React from 'react'
-import styles from '@/styles/components/Button.module.css'
+import styles from '@/styles/components/ToggleButton.module.css'
 
-interface ButtonProps {
+interface ToggleButtonProps {
+    value: boolean,
     size?: string,
     disabled?: boolean,
     fullWidth?: boolean,
-    onClick: () => void,
+    onClick: (value: boolean) => void,
     children: any,
     style?: any
 }
 
-const Button = (props: ButtonProps) => {
+const ToggleButton = (props: ToggleButtonProps) => {
   return (
     <button className={[styles.container, 
                         props.fullWidth ? styles.fullWidthModifier : "", 
@@ -18,8 +19,9 @@ const Button = (props: ButtonProps) => {
                           styles.mediumButton : 
                           styles.smallButton,
                         props.disabled ? styles.disabled : "",
+                        props.value ? styles.on : styles.off
                       ].join(" ")} 
-            onClick={() => !props.disabled ? props.onClick ? props.onClick() : {} : {}}
+            onClick={() => !props.disabled ? props.onClick ? props.onClick(!props.value) : {} : {}}
             style={props.style}
     >
         {props.children}
@@ -27,4 +29,4 @@ const Button = (props: ButtonProps) => {
   )
 }
 
-export default Button
+export default ToggleButton
