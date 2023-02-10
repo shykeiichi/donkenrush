@@ -4,7 +4,7 @@ import styles from '@/styles/components/SegmentedButton.module.css'
 interface SegmentedButtonProps {
     buttons: string[],
     value: string,
-    style: any,
+    style?: any,
     onChange?: (value: string) => void,
     fullWidth?: boolean
 }

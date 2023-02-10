@@ -52,7 +52,7 @@ const Orders = () => {
                     if(!Object.keys(ordersList).includes(articleName)) {
                         ordersList[articleName] = {
                             cart: [...article],
-                            menu: menu[category].find((e) => e.name == articleName)
+                            menu: menu[category].find((e: any) => e.name == articleName)
                         } 
                     } else {
                         ordersList[articleName].cart = ordersList[articleName].cart.concat(article)

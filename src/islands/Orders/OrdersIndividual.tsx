@@ -9,6 +9,7 @@ interface OrdersIndividualProps {
     orders: any,
     menu: Menu,
     setPaid: any,
+    setOrders: any
 }
 
 const OrdersIndividual = (props: OrdersIndividualProps) => {

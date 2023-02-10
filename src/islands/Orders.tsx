@@ -18,7 +18,7 @@ const Orders = (props: OrdersProps) => {
     }
 
     // Get total price of orders
-    const getTotalPrice = (): Number => {
+    const getTotalPrice = (): number => {
         let price = 0;
         Object.keys(props.orderList).forEach((articleName: string) => {
             let item = props.orderList[articleName];
@@ -27,7 +27,7 @@ const Orders = (props: OrdersProps) => {
         return price
     }
 
-    const getTotalAmount = (): Number => {
+    const getTotalAmount = (): number => {
         let amount = 0;
         Object.keys(props.orderList).forEach((articleName: string) => {
             let item = props.orderList[articleName];
@@ -53,11 +53,11 @@ const Orders = (props: OrdersProps) => {
             </thead>
             <tbody>
                 {
-                    Object.keys(props.orderList).map((articleName) => {
+                    Object.keys(props.orderList).map((articleName: any) => {
                         let item = props.orderList[articleName];
 
                         if(item.menu.variations.length > 0) {
-                            return item.menu.variations.map((variation) => {
+                            return item.menu.variations.map((variation: any) => {
                                 if(getAmountOfVariation(articleName, variation) == 0) {
                                     return;
                                 }
