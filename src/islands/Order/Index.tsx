@@ -13,7 +13,7 @@ interface IndexProps {
 
 const Index = (props: IndexProps) => {
 
-    let [visible, setVisible] = useState(true)
+    let [visible, setVisible] = useState(false)
         
     const { height, width }= useWindowDimensions();
 
