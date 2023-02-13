@@ -116,6 +116,7 @@ const Orders = () => {
                                             : 
                                                 <OrdersIndividual orders={orders} menu={menu} setPaid={setPaid} setOrders={setServerOrders} />
                                             }
+                                            <Button onClick={() => setOrdersLock(true)} style={{position: "fixed", bottom: 10, left: 10}}>Öppna beställningar</Button>
                                         </>
                                     :
                                         <div className={styles.ordersLockedContainer}>
