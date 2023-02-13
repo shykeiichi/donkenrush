@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import styles from "@/styles/islands/Orders.module.css"
 import { useSession } from "next-auth/react"
 import { Config } from "@/src/interfaces"
+import Button from "@/src/components/Button"
 
 const Orders = () => {
     const { data: session } = useSession()
@@ -16,7 +17,10 @@ const Orders = () => {
 
     let config: Config;
     let setConfig: any;
-    [config, setConfig] = useState({})
+    [config, setConfig] = useState({
+        "ordersOpen": false,
+        "staffemail": []
+    })
 
     const fetchData = async () => {
         let responseOrdersOpen = await fetch(`/api/getConfig`)
@@ -29,7 +33,8 @@ const Orders = () => {
         let menuJson = await menuResponse.json();
         setMenu(menuJson);
 
-        let ordersResponse = await fetch("/api/getOrders");
+        let ordersResponse = await fetch(`/api/getOrders`);
+
         let ordersJson = await ordersResponse.json();
         setOrders(ordersJson);
     }
@@ -80,34 +85,53 @@ const Orders = () => {
         return ordersList
     }
 
+    const setOrdersLock = async (lock: boolean) => {        
+        let response = await fetch("/api/setOrderLock", {
+            method: 'POST', // or 'PUT'
+            headers: {
+            'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                "orders": lock,
+                "email": session.user.email
+            })
+        });
+
+        window.location.reload()
+    }
+
     return (
         <>
             <div className={styles.container}>
-                { 
-                    config.staffemail ? config.staffemail.includes(session.user.email) ?
-                        <>
-                            {
-                                !config.ordersOpen ?
-                                    <>
-                                        <SegmentedButton buttons={["Total", "Individual"]} value={tab} onChange={(value) => setTab(value)} style={{width: 400}}/>
-                                        { tab=="Total" ?
-                                            <OrdersIsland orderList={getOrdersAsList()} />
-                                        : 
-                                            <OrdersIndividual orders={orders} menu={menu} setPaid={setPaid} setOrders={setServerOrders} />
-                                        }
-                                    </>
-                                :
-                                    <div>
-                                        Beställningar är öppna och därför är beställnings panelen stängd för att undvika problem
-                                    </div>
-                                : <div></div>
-                            }
-                        </>
-                    :
-                        <div>
-                            Du har inte tillåtelse att se beställningarna
-                        </div>
-                    }    
+                {   
+                    session != undefined ?
+                        config.staffemail ? config.staffemail.includes(session.user.email) ?
+                            <>
+                                {
+                                    !config.ordersOpen ?
+                                        <>
+                                            <SegmentedButton buttons={["Total", "Individual"]} value={tab} onChange={(value) => setTab(value)} style={{width: 400}}/>
+                                            { tab=="Total" ?
+                                                <OrdersIsland orderList={getOrdersAsList()} />
+                                            : 
+                                                <OrdersIndividual orders={orders} menu={menu} setPaid={setPaid} setOrders={setServerOrders} />
+                                            }
+                                        </>
+                                    :
+                                        <div className={styles.ordersLockedContainer}>
+                                            Beställningar är öppna och därför är beställnings panelen stängd för att undvika problem<br/>
+                                            <div><b>{Object.keys(orders).length}</b> personer har beställt</div>
+                                            <Button onClick={() => setOrdersLock(false)}>Lås beställningar</Button>
+                                        </div>
+                                }
+                            </>
+                        :
+                            <div>
+                                Du har inte tillåtelse att se beställningarna
+                            </div>
+                        : <div></div>  
+                    : <div>Couldnt find session</div>
+                }
             </div>
         </>
     )

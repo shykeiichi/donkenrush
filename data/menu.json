@@ -1,95 +1,23 @@
 {
-    "Perfekt för hemleverans!": [
-        {
-            "name": "Super-Meny",
-            "variations": [],
-            "image": "",
-            "url": "",
-            "price": "253,00"
-        },
-        {
-            "name": "Trerättersmenyn för två",
-            "variations": [],
-            "image": "",
-            "url": "",
-            "price": "304,00"
-        },
-        {
-            "name": "Megamenyn",
-            "variations": [],
-            "image": "",
-            "url": "",
-            "price": "146,00"
-        },
-        {
-            "name": "Big Chili Mayo & Cheese",
-            "variations": [],
-            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-bigchilimayocheese:1-4-product-tile-desktop",
-            "url": "https://www.mcdonalds.com/se/sv-se/product/big-chili-mayo-och-cheese.html",
-            "price": "95,00"
-        },
-        {
-            "name": "Chili Mayo & Cheese",
-            "variations": [],
-            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-chilimayocheese:1-4-product-tile-desktop",
-            "url": "https://www.mcdonalds.com/se/sv-se/product/chili-mayo-och-cheese.html",
-            "price": "79,00"
-        },
-        {
-            "name": "Dubbel QP Cheese",
-            "variations": [],
-            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-qp-cheese-BestBurger:1-4-product-tile-desktop",
-            "url": "https://www.mcdonalds.com/se/sv-se/product/qp-cheese.html",
-            "price": "85,00"
-        },
-        {
-            "name": "QP Cheese",
-            "variations": [],
-            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-qp-cheese-BestBurger:1-4-product-tile-desktop",
-            "url": "https://www.mcdonalds.com/se/sv-se/product/qp-cheese.html",
-            "price": "68,00"
-        },
-        {
-            "name": "9 st Chicken McNuggets®",
-            "variations": [],
-            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-chicken-mcnuggets-9p:1-4-product-tile-desktop",
-            "url": "https://www.mcdonalds.com/se/sv-se/product/9-chicken-mcnuggets.html",
-            "price": "69,00"
-        },
-        {
-            "name": "20 st Chicken McNuggets®",
-            "variations": [],
-            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-chicken-mcnuggets-20p:1-4-product-tile-desktop",
-            "url": "https://www.mcdonalds.com/se/sv-se/product/20-chicken-mcnuggets.html",
-            "price": "109,00"
-        },
-        {
-            "name": "Big Share Box",
-            "variations": [],
-            "image": "https://s7d1.scene7.com/is/image/mcdonalds/mcd-sv-products-burgers-big-share:1-4-product-tile-desktop",
-            "url": "https://www.mcdonalds.com/se/sv-se/product/big-share.html",
-            "price": "109,00"
-        }
-    ],
     "Produkter & Menyer": [
         {
             "name": "Super-Meny",
             "variations": [],
-            "image": "",
+            "image": "https://tb-static.uber.com/prod/image-proc/processed_images/bc366344c92ec80063fad9940b7f4a72/5954bcb006b10dbfd0bc160f6370faf3.jpeg",
             "url": "",
             "price": "253,00"
         },
         {
             "name": "Trerättersmenyn för två",
             "variations": [],
-            "image": "",
+            "image": "https://tb-static.uber.com/prod/image-proc/processed_images/4d2bb151a36a85510ac89b7ff51e20c4/5954bcb006b10dbfd0bc160f6370faf3.jpeg",
             "url": "",
             "price": "304,00"
         },
         {
             "name": "Megamenyn",
             "variations": [],
-            "image": "",
+            "image": "https://tb-static.uber.com/prod/image-proc/processed_images/28e2d9a6788857496da5b134a8887c9c/5954bcb006b10dbfd0bc160f6370faf3.jpeg",
             "url": "",
             "price": "146,00"
         },
@@ -807,7 +735,7 @@
             "price": "26,00"
         }
     ],
-    "Happy Meal®": [
+    "Perfekt för LAN!": [
         {
             "name": "Happy Meal® Hamburgare",
             "variations": [],

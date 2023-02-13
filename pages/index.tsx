@@ -17,6 +17,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <center>
+        <img src="https://cdn.rawgit.com/eweilow/togethernet-assets/master/svg/light_background.svg" />
+      </center>
       { session ?
         <main className={styles.main}>
           <Order />

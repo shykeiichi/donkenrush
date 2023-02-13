@@ -41,7 +41,7 @@ export async function setOrders(data: object) {
     await fs.writeFile(dataDirectory + '/orders.json', JSON.stringify(data));
 }
 
-export async function getConfig(): Config {
+export async function getConfig(): Promise<Config> {
     const jsonDirectory = path.join(process.cwd(), 'data');
     const fileContents = await fs.readFile(jsonDirectory + '/config.json', 'utf8');
     let parsed = {}
@@ -50,5 +50,13 @@ export async function getConfig(): Config {
     } catch {
         parsed = {"err": "no"}
     }
-    return parsed as Config
+    return new Promise(function(resolve, reject) {
+        resolve(parsed as Config)
+    });
+}
+
+export async function setConfig(data: Config) {
+    const dataDirectory = path.join(process.cwd(), 'data');
+
+    await fs.writeFile(dataDirectory + '/config.json', JSON.stringify(data));
 }
